@@ -5,10 +5,10 @@ import (
 	"os"
 	"time"
 
-	"github.com/johnfercher/maroto/pkg/color"
-	"github.com/johnfercher/maroto/pkg/consts"
-	"github.com/johnfercher/maroto/pkg/pdf"
-	"github.com/johnfercher/maroto/pkg/props"
+	"github.com/iFraan/maroto/pkg/color"
+	"github.com/iFraan/maroto/pkg/consts"
+	"github.com/iFraan/maroto/pkg/pdf"
+	"github.com/iFraan/maroto/pkg/props"
 )
 
 func main() {
@@ -117,6 +117,7 @@ func main() {
 		ContentProp: props.TableListContent{
 			Size:      8,
 			GridSizes: []uint{3, 4, 2, 3},
+			Align:     []consts.Align{consts.Center, consts.Center, consts.Center, consts.Left},
 		},
 		Align:                consts.Center,
 		AlternatedBackground: &grayColor,

@@ -5,11 +5,11 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/johnfercher/maroto/internal"
-	"github.com/johnfercher/maroto/internal/mocks"
-	"github.com/johnfercher/maroto/pkg/color"
-	"github.com/johnfercher/maroto/pkg/consts"
-	"github.com/johnfercher/maroto/pkg/props"
+	"github.com/iFraan/maroto/internal"
+	"github.com/iFraan/maroto/internal/mocks"
+	"github.com/iFraan/maroto/pkg/color"
+	"github.com/iFraan/maroto/pkg/consts"
+	"github.com/iFraan/maroto/pkg/props"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/mock"
 )

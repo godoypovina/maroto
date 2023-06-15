@@ -1,8 +1,8 @@
 package props
 
 import (
-	"github.com/johnfercher/maroto/pkg/color"
-	"github.com/johnfercher/maroto/pkg/consts"
+	"github.com/iFraan/maroto/pkg/color"
+	"github.com/iFraan/maroto/pkg/consts"
 )
 
 // Proportion represents a proportion from a rectangle, example: 16x9, 4x3...
@@ -115,6 +115,8 @@ type TableListContent struct {
 	// desired index
 	// Must start at 0
 	CellTextColorChangerColumnIndex int
+	// Align defines the individual Alignment for every Column
+	Align []consts.Align
 }
 
 // TableList represents properties from a TableList.
@@ -126,6 +128,7 @@ type TableList struct {
 	// the contents.
 	ContentProp TableListContent
 	// Align is the align of the text (header and content) inside the columns.
+	// It serves as a Fallback for the Header and Content Alignment.
 	Align consts.Align
 	// AlternatedBackground define the background color from even rows
 	// i.e rows with index (0, 2, 4, ..., N) will have background colorized,
@@ -303,6 +306,7 @@ func (s *TableListContent) ToTextProp(align consts.Align, top float64, extrapola
 
 // MakeValid from TableList define default values for a TableList.
 func (s *TableList) MakeValid(header []string, defaultFamily string) {
+	lenHeader := len(header)
 	zeroValue := 0.0
 	if s.HeaderProp.Size == zeroValue {
 		s.HeaderProp.Size = 10.0
@@ -321,12 +325,16 @@ func (s *TableList) MakeValid(header []string, defaultFamily string) {
 	}
 
 	if len(s.HeaderProp.GridSizes) == 0 {
-		gridSize := uint(s.MaxGridSum / float64(len(header)))
+		gridSize := uint(s.MaxGridSum / float64(lenHeader))
 		s.HeaderProp.GridSizes = []uint{}
 
 		for range header {
 			s.HeaderProp.GridSizes = append(s.HeaderProp.GridSizes, gridSize)
 		}
+	}
+
+	if len(s.HeaderProp.Align) != lenHeader {
+		s.HeaderProp.Align = nil
 	}
 
 	if s.Align == "" {
@@ -346,12 +354,16 @@ func (s *TableList) MakeValid(header []string, defaultFamily string) {
 	}
 
 	if len(s.ContentProp.GridSizes) == 0 {
-		gridSize := uint(s.MaxGridSum / float64(len(header)))
+		gridSize := uint(s.MaxGridSum / float64(lenHeader))
 		s.ContentProp.GridSizes = []uint{}
 
 		for range header {
 			s.ContentProp.GridSizes = append(s.ContentProp.GridSizes, gridSize)
 		}
+	}
+
+	if len(s.ContentProp.Align) != lenHeader {
+		s.ContentProp.Align = nil
 	}
 
 	if s.HeaderContentSpace == zeroValue {

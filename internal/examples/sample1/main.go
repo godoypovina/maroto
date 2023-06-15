@@ -8,10 +8,10 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/johnfercher/maroto/pkg/color"
-	"github.com/johnfercher/maroto/pkg/consts"
-	"github.com/johnfercher/maroto/pkg/pdf"
-	"github.com/johnfercher/maroto/pkg/props"
+	"github.com/iFraan/maroto/pkg/color"
+	"github.com/iFraan/maroto/pkg/consts"
+	"github.com/iFraan/maroto/pkg/pdf"
+	"github.com/iFraan/maroto/pkg/props"
 )
 
 func main() {
@@ -46,14 +46,14 @@ func main() {
 			m.ColSpace(3)
 
 			m.Col(3, func() {
-				m.QrCode("https://github.com/johnfercher/maroto", props.Rect{
+				m.QrCode("https://github.com/iFraan/maroto", props.Rect{
 					Center:  true,
 					Percent: 75,
 				})
 			})
 
 			m.Col(3, func() {
-				id := "https://github.com/johnfercher/maroto"
+				id := "https://github.com/iFraan/maroto"
 				_ = m.Barcode(id, props.Barcode{
 					Center:     true,
 					Proportion: props.Proportion{Width: 50, Height: 10},
@@ -70,7 +70,9 @@ func main() {
 		m.Line(1.0,
 			props.Line{
 				Color: color.Color{
-					255, 0, 0,
+					Red:   255,
+					Blue:  0,
+					Green: 0,
 				},
 			})
 
@@ -175,10 +177,16 @@ func main() {
 	m.TableList(headerSmall, smallContent, props.TableList{
 		ContentProp: props.TableListContent{
 			GridSizes: []uint{3, 6, 3},
-			Color:     color.Color{100, 0, 0},
+			Color: color.Color{
+				Red:   100,
+				Blue:  0,
+				Green: 0,
+			},
+			Align: []consts.Align{consts.Right, consts.Center, consts.Left},
 		},
 		HeaderProp: props.TableListContent{
 			GridSizes: []uint{3, 6, 3},
+			Align:     []consts.Align{consts.Right, consts.Center, consts.Left},
 		},
 		AlternatedBackground: &color.Color{
 			Red:   200,
@@ -204,6 +212,7 @@ func main() {
 			Family:    consts.Courier,
 			Style:     consts.Italic,
 			GridSizes: []uint{5, 5, 2},
+			Align:     []consts.Align{consts.Center, consts.Center, consts.Right},
 		},
 		HeaderProp: props.TableListContent{
 			GridSizes: []uint{5, 5, 2},

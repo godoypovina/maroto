@@ -1,9 +1,9 @@
 package internal
 
 import (
-	"github.com/johnfercher/maroto/pkg/color"
-	"github.com/johnfercher/maroto/pkg/consts"
-	"github.com/johnfercher/maroto/pkg/props"
+	"github.com/iFraan/maroto/pkg/color"
+	"github.com/iFraan/maroto/pkg/consts"
+	"github.com/iFraan/maroto/pkg/props"
 )
 
 const (
@@ -88,14 +88,20 @@ func (s *tableList) Create(header []string, contents [][]string, defaultFontFami
 	tableProp.MakeValid(header, defaultFontFamily)
 	headerHeight := s.calcLinesHeight(header, tableProp.HeaderProp, tableProp.Align)
 
+	alignment := tableProp.Align
+
 	// Draw header.
 	s.pdf.Row(headerHeight+1, func() {
 		for i, h := range header {
 			hs := h
 
+			if tableProp.HeaderProp.Align != nil {
+				alignment = tableProp.HeaderProp.Align[i]
+			}
+
 			s.pdf.Col(tableProp.HeaderProp.GridSizes[i], func() {
 				reason := hs
-				s.pdf.Text(reason, tableProp.HeaderProp.ToTextProp(tableProp.Align, 0, false, 0.0))
+				s.pdf.Text(reason, tableProp.HeaderProp.ToTextProp(alignment, 0, false, 0.0))
 			})
 		}
 	})
@@ -114,9 +120,15 @@ func (s *tableList) Create(header []string, contents [][]string, defaultFontFami
 			s.pdf.SetBackgroundColor(*tableProp.AlternatedBackground)
 		}
 
+		alignment := tableProp.Align
+
 		s.pdf.Row(contentHeightPadded+1, func() {
 			for i, c := range content {
 				cs := c
+
+				if tableProp.ContentProp.Align != nil {
+					alignment = tableProp.ContentProp.Align[i]
+				}
 
 				s.pdf.Col(tableProp.ContentProp.GridSizes[i], func() {
 					if tableProp.ContentProp.CellTextColorChangerFunc != nil &&
@@ -128,7 +140,7 @@ func (s *tableList) Create(header []string, contents [][]string, defaultFontFami
 
 					halfDivisor := 2.0
 					topComputed := tableProp.VerticalContentPadding / halfDivisor
-					s.pdf.Text(cs, tableProp.ContentProp.ToTextProp(tableProp.Align, topComputed, false, 0.0), props.Text{})
+					s.pdf.Text(cs, tableProp.ContentProp.ToTextProp(alignment, topComputed, false, 0.0), props.Text{})
 				})
 			}
 		})

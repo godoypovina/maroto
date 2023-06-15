@@ -4,12 +4,12 @@ import (
 	"bytes"
 	"time"
 
-	"github.com/johnfercher/maroto/internal/fpdf"
-	"github.com/johnfercher/maroto/pkg/color"
+	"github.com/iFraan/maroto/internal/fpdf"
+	"github.com/iFraan/maroto/pkg/color"
 
-	"github.com/johnfercher/maroto/internal"
-	"github.com/johnfercher/maroto/pkg/consts"
-	"github.com/johnfercher/maroto/pkg/props"
+	"github.com/iFraan/maroto/internal"
+	"github.com/iFraan/maroto/pkg/consts"
+	"github.com/iFraan/maroto/pkg/props"
 	"github.com/jung-kurt/gofpdf"
 )
 
