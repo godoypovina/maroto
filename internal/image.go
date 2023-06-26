@@ -5,10 +5,10 @@ import (
 	"encoding/base64"
 	"errors"
 
+	"github.com/godoypovina/maroto/internal/fpdf"
+	"github.com/godoypovina/maroto/pkg/consts"
+	"github.com/godoypovina/maroto/pkg/props"
 	"github.com/google/uuid"
-	"github.com/iFraan/maroto/internal/fpdf"
-	"github.com/iFraan/maroto/pkg/consts"
-	"github.com/iFraan/maroto/pkg/props"
 	"github.com/jung-kurt/gofpdf"
 )
 

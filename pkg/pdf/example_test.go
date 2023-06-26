@@ -6,10 +6,10 @@ import (
 	"testing"
 	"time"
 
-	"github.com/iFraan/maroto/pkg/color"
-	"github.com/iFraan/maroto/pkg/consts"
-	"github.com/iFraan/maroto/pkg/pdf"
-	"github.com/iFraan/maroto/pkg/props"
+	"github.com/godoypovina/maroto/pkg/color"
+	"github.com/godoypovina/maroto/pkg/consts"
+	"github.com/godoypovina/maroto/pkg/pdf"
+	"github.com/godoypovina/maroto/pkg/props"
 )
 
 // ExampleNewMaroto demonstrates how to create maroto.
@@ -383,7 +383,7 @@ func ExamplePdfMaroto_Barcode() {
 	// Do a lot of things on rows and columns...
 
 	m.Col(12, func() {
-		_ = m.Barcode("https://github.com/iFraan/maroto", props.Barcode{
+		_ = m.Barcode("https://github.com/godoypovina/maroto", props.Barcode{
 			Percent:    75,
 			Proportion: props.Proportion{Width: 50, Height: 10},
 			Center:     true,
@@ -409,7 +409,7 @@ func ExamplePdfMaroto_QrCode() {
 
 	m.Row(rowHeight, func() {
 		m.Col(12, func() {
-			m.QrCode("https://godoc.org/github.com/iFraan/maroto", props.Rect{
+			m.QrCode("https://godoc.org/github.com/godoypovina/maroto", props.Rect{
 				Left:    5,
 				Top:     5,
 				Center:  false,
@@ -435,7 +435,7 @@ func ExamplePdfMaroto_DataMatrixCode() {
 
 	m.Row(rowHeight, func() {
 		m.Col(12, func() {
-			m.DataMatrixCode("https://godoc.org/github.com/iFraan/maroto", props.Rect{
+			m.DataMatrixCode("https://godoc.org/github.com/godoypovina/maroto", props.Rect{
 				Left:    5,
 				Top:     5,
 				Center:  false,

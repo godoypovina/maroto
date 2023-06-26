@@ -29,11 +29,11 @@ Installation
 
 To install the package on your system, run
 
-    go get github.com/iFraan/maroto
+    go get github.com/godoypovina/maroto
 
 Later, to receive updates, run
 
-    go get -u -v github.com/iFraan/maroto/...
+    go get -u -v github.com/godoypovina/maroto/...
 
 
 Quick Start

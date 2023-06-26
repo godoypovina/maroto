@@ -8,10 +8,10 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/iFraan/maroto/pkg/color"
-	"github.com/iFraan/maroto/pkg/consts"
-	"github.com/iFraan/maroto/pkg/pdf"
-	"github.com/iFraan/maroto/pkg/props"
+	"github.com/godoypovina/maroto/pkg/color"
+	"github.com/godoypovina/maroto/pkg/consts"
+	"github.com/godoypovina/maroto/pkg/pdf"
+	"github.com/godoypovina/maroto/pkg/props"
 )
 
 func main() {
@@ -46,14 +46,14 @@ func main() {
 			m.ColSpace(3)
 
 			m.Col(3, func() {
-				m.QrCode("https://github.com/iFraan/maroto", props.Rect{
+				m.QrCode("https://github.com/godoypovina/maroto", props.Rect{
 					Center:  true,
 					Percent: 75,
 				})
 			})
 
 			m.Col(3, func() {
-				id := "https://github.com/iFraan/maroto"
+				id := "https://github.com/godoypovina/maroto"
 				_ = m.Barcode(id, props.Barcode{
 					Center:     true,
 					Proportion: props.Proportion{Width: 50, Height: 10},

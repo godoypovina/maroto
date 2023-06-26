@@ -3,8 +3,8 @@ package props_test
 import (
 	"testing"
 
-	"github.com/iFraan/maroto/pkg/consts"
-	"github.com/iFraan/maroto/pkg/props"
+	"github.com/godoypovina/maroto/pkg/consts"
+	"github.com/godoypovina/maroto/pkg/props"
 	"github.com/stretchr/testify/assert"
 )
 

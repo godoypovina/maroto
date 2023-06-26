@@ -5,9 +5,9 @@ import (
 	"os"
 	"time"
 
-	"github.com/iFraan/maroto/pkg/consts"
-	"github.com/iFraan/maroto/pkg/pdf"
-	"github.com/iFraan/maroto/pkg/props"
+	"github.com/godoypovina/maroto/pkg/consts"
+	"github.com/godoypovina/maroto/pkg/pdf"
+	"github.com/godoypovina/maroto/pkg/props"
 )
 
 var gridSum float64 = 8

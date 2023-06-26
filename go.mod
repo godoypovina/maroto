@@ -1,4 +1,4 @@
-module github.com/iFraan/maroto
+module github.com/godoypovina/maroto
 
 go 1.13
 
